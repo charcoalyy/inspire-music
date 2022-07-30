@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  --red: rgb(198, 18, 25);
+  --faint-red: rgba(198, 18, 25, 0.6);
+  --black: rgb(40, 40, 40);
+  --dark-grey: rgb(161, 161, 161);
+  --light-grey: rgb(230, 230, 230);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 95vw;
+  margin: auto;
+  background-color: var(--light-grey);
+  font-family: 'Poppins';
+}
+
+.to-top {
+  text-decoration: none;
+  color: white;
+  position: fixed;
+  font-size: 12px;
+  bottom: 0;
+  right: 0;
+  margin: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  background-color: var(--faint-red);
+  transition: all 0.5s;
+  border-radius: 50%;
+}
+
+.to-top:hover {
+  background-color: var(--red);
+}
+
+.header {
+  width: 95vw;
+  margin: 3rem auto 0.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+  padding: 1rem 2rem;
+  
+  text-transform: uppercase;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+#header-image {
+  height: 5rem;
+}
+
+.navbar a {
+  cursor: pointer;
+  width: fit-content;
+  text-decoration: none;
+  margin: 0rem 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: var(--dark-grey);
+  transition: all 0.5s;
+}
+
+.navbar a:hover {
+  color: var(--red);
+  border-bottom: 3px solid var(--red);
+}
+
+.active-nav {
+  color: var(--red) !important;
+  border-bottom: 3px solid var(--red);
+}
+
+.homepage, .lessons {
+  background-color: white;
+  padding-bottom: 2.5rem;
+}
+
+.banner {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#home-banner {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75) 90%), url("https://p0.nicelocal.ca/preview/DUI6oAJnaKTgaUimQSiLTg/640x174x85/1/3/3/original_6134df8e40c82f448e1d9f8f_6281047a8267c3.33944085.jpg");
+}
+
+#lessons-banner {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75) 90%), url("https://p0.nicelocal.ca/preview/DUI6oAJnaKTgaUimQSiLTg/640x174x85/1/3/3/original_6134df8e40c82f448e1d9f8f_6281047a8267c3.33944085.jpg");
+}
+
+.banner h2 {
+  padding: 1rem;
+  font-size: 40px;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+}
+
+.banner p {
+  padding-bottom: 1rem;
+  font-size: 14px;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+}
+
+.free-trial {
+  all: unset;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  padding: 1rem 1.5rem;
+  background-color: var(--faint-red);
+  color: white;
+  transition: all 0.5s;
+}
+
+.free-trial:hover {
+  background-color: var(--red);
+}
+
+.home-offers-title {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.home-offers, .lesson-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lesson-categories {
+  padding-top: 2rem;
+}
+
+.info-card {
+  width: 42.5vw;
+  transition: all 0.5s;
+  background-color: rgba(230, 230, 230, 0.5);
+  border-radius: 0.5rem;
+  margin: 0.25rem;
+  overflow: hidden;
+}
+
+.info-card img {
+  width: 100%;
+  height: 55vh;
+  padding-bottom: 1rem;
+}
+
+.info-card h2 {
+  transition: all 0.5s;
+  padding: 0 1rem;
+  font-weight: 600;
+}
+
+.info-card p {
+  font-weight: 300;
+  padding: 1rem 1rem 2rem 1rem;
+  font-size: 16px;
+}
+
+.info-card:hover {
+  transform: scale(1.01);
+}
+
+.info-card:hover > h2 {
+  color: var(--red);
+}
+
+.footer {
+  width: 95vw;
+  margin: 0.5rem auto 0 auto;
+  background-color: white;
+  padding: 1rem;
+  text-align: center;
+  color: var(--dark-grey);
+  font-size: 12px;
+  box-sizing: border-box;
+}
