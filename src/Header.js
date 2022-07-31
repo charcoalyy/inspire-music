@@ -1,6 +1,6 @@
 
 
-const Header = ({currentPage, setCurrentPage}) => {
+const Header = ({setCurrentPage}) => {
 
     const inactivateTabs = () => {
         const navTabs = document.querySelectorAll('.nav-tab');
@@ -11,7 +11,6 @@ const Header = ({currentPage, setCurrentPage}) => {
         inactivateTabs();
         e.target.classList.add('active-nav');
         setCurrentPage(e.target.id);
-        console.log(currentPage);
     }
 
     return(
