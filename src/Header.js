@@ -1,4 +1,5 @@
-
+import { Link } from 'react-router-dom';
+import Dropdown from './Dropdown';
 
 const Header = ({setCurrentPage}) => {
 
@@ -16,15 +17,16 @@ const Header = ({setCurrentPage}) => {
     return(
         <div className="header">
             <section className="header-logo">
-                <a href="/"><img id="header-image" src="https://inspiremusiclesson.com/wp-content/uploads/2017/11/sample-FINAL-retina.jpg"></img></a>
+                <Link to="/"><img id="header-image" src="https://inspiremusiclesson.com/wp-content/uploads/2017/11/sample-FINAL-retina.jpg"></img></Link>
             </section>
             <section className="navbar">
-                <a id="home" className="nav-tab active-nav" onClick={handleClick}>Home</a>
-                <a id="lessons" className="nav-tab" onClick={handleClick}>Lessons</a>
-                <a className="nav-tab" onClick={handleClick}>Teachers</a>
-                <a className="nav-tab" onClick={handleClick}>Events</a>
-                <a className="nav-tab" onClick={handleClick}>Contact Us</a>
+                <Link to="/" id="home" className="nav-tab active-nav" onClick={handleClick}>Home</Link>
+                <Link to="/lessons" id="lessons" className="nav-tab" onClick={handleClick}>Lessons</Link>
+                <Link to="/teachers" className="nav-tab" onClick={handleClick}>Teachers</Link>
+                <Link to="/events" className="nav-tab" onClick={handleClick}>Events</Link>
+                <Link to="/contact" className="nav-tab" onClick={handleClick}>Contact Us</Link>
             </section>
+            <Dropdown items={["Instrumental", "Music Theory", "Other"]} id="lessons-dropdown" />
         </div>
     )
 }
