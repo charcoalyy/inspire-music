@@ -1,5 +1,4 @@
 import './App.css';
-import { useState } from 'react';
 import Header from './Header';
 import Homepage from './Homepage';
 import Lessons from './Lessons';
@@ -7,21 +6,25 @@ import Footer from './Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
 import TabTitle from './TabTitle';
+import BookTrial from './BookTrial';
 
 function App() {
-
-    const [currentPage, setCurrentPage] = useState("home");
 
     return (
       <Router>
         <ScrollToTop />
         <TabTitle />
         <div className="App">
-          <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <Header />
           <div className="page-content">
             <Routes>
-              <Route exact path="/" element={<Homepage currentPage={currentPage} setCurrentPage={setCurrentPage} />}/>
-              <Route path="/lessons/*" element={<Lessons currentPage={currentPage} setCurrentPage={setCurrentPage} />}/>
+              <Route exact path="/" element={<Homepage />} />
+              <Route path="/lessons/*" element={<Lessons />}/>
+              <Route path="/teachers" />
+              <Route path="/events" />
+              <Route path="/contact" />
+              <Route path="/about" />
+              <Route path="/contact/test" element={<BookTrial />} />
             </Routes>
           </div>
           <Footer />

@@ -144,6 +144,10 @@ body {
   background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85) 90%), url("https://cdn.canada247.info/assets/uploads/dd7bbc4aaf7f31a09525051f38982478_-ontario-regional-municipality-of-york-markham-inspire-music-academy-905-534-2456html.jpg");
 }
 
+#booking-banner {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) 90%), url("https://www.sagemusic.co/wp-content/uploads/2018/01/How-long-a-music-lesson-should-you-take.png");
+}
+
 .banner h2 {
   padding: 1rem;
   font-size: 40px;
@@ -183,6 +187,86 @@ body {
   font-weight: 300;
 }
 
+.book-trial {
+  width: 95vw;
+  box-sizing: border-box;
+  background-color: white;
+  font-weight: 300;
+  color: var(--black);
+}
+
+.book-trial form {
+  padding: 2rem 4rem;
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-trial h3 {
+  padding-top: 2rem;
+  font-weight: 700;
+}
+
+.book-trial label {
+  padding-right: 0.5rem;
+  font-weight: 400;
+}
+
+.book-trial div {
+  padding-bottom: 0.5rem;
+}
+
+.book-trial .button {
+  width: fit-content;
+  border: none;
+  font-family: 'Poppins';
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  padding: 1rem 1.5rem;
+  background-color: var(--red);
+  color: white;
+  transition: all 0.5s;
+  margin-right: 0.5rem;
+}
+
+.book-trial .button:hover, .book-trial .active-selection {
+  background-color: var(--black);
+}
+
+.book-trial .placeholder {
+  font-style: italic;
+  padding: 0;
+  color: var(--dark-grey);
+}
+
+.book-trial .lesson-form-section {
+  padding-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.book-trial input, .book-trial select {
+  padding: 0.25rem 0.5rem;
+  border: 1.5px solid var(--light-grey);
+  border-radius: 0.25rem;
+  transition: all 0.5s;
+  font-family: 'Poppins';
+}
+
+.book-trial input:focus, .book-trial select:focus {
+  outline: none;
+  border-color: var(--dark-grey);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  padding-bottom: 0.5rem;
+}
 
 
 /* Page objects */
