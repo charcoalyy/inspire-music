@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Dropdown from './Dropdown';
 import { useState, useEffect } from 'react';
 import ActivateTab from './ActivateTab';
+import { lessonMenuItems, teacherMenuItems } from './SpecificLists';
 
 const Header = () => {
     const [ activeTab, setActiveTab ] = useState('home');
@@ -12,25 +13,8 @@ const Header = () => {
         activeTab ? document.getElementById(activeTab).classList.add('active-nav') : document.getElementById('home').classList.add('active-nav')
     }, [activeTab])
 
-    const lessonMenuItems = [
-        {
-            title: "Instrumental",
-            path: "instrumental",
-            className: "dropdown-item"
-        }, 
-        {
-            title: "Music Theory",
-            path: "theory",
-            className: "dropdown-item"
-        }, 
-        {
-            title: "Other",
-            path: "other",
-            className: "dropdown-item"
-        }
-    ]
-
-    const [ dropdown, setDropdown ] = useState(false);
+    const [ lessonDropdown, setLessonDropdown ] = useState(false);
+    const [ teacherDropdown, setTeacherDropdown ] = useState(false);
 
     return(
         <div className="header">
@@ -42,12 +26,13 @@ const Header = () => {
                 <div className="nav-tab-container">
                     <Link to="/" id="home" className="nav-tab active-nav">Home</Link>
                 </div>
-                <div onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)} className="nav-tab-container" onClick={() => setDropdown(false)}>
+                <div onMouseEnter={() => setLessonDropdown(true)} onMouseLeave={() => setLessonDropdown(false)} className="nav-tab-container" onClick={() => setLessonDropdown(false)}>
                     <Link to="/lessons" id="lessons" className="nav-tab">Lessons</Link>
-                    {dropdown && <Dropdown items={lessonMenuItems} id="lessons-dropdown" />}
+                    {lessonDropdown && <Dropdown items={lessonMenuItems} id="lessons-dropdown" />}
                 </div>
-                <div className="nav-tab-container">
+                <div className="nav-tab-container" onMouseEnter={() => setTeacherDropdown(true)} onMouseLeave={() => setTeacherDropdown(false)} onClick={() => setTeacherDropdown(false)}>
                     <Link to="/teachers" id="teachers" className="nav-tab">Teachers</Link>
+                    {teacherDropdown && <Dropdown items={teacherMenuItems} id="teachers-dropdown" />}
                 </div>
                 <div className="nav-tab-container">
                     <Link to="/events" id="events" className="nav-tab">Events</Link>

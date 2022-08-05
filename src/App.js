@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
 import TabTitle from './TabTitle';
 import BookTrial from './BookTrial';
+import Teachers from './Teachers';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Homepage />} />
               <Route path="/lessons/*" element={<Lessons />}/>
-              <Route path="/teachers" />
+              <Route path="/teachers/*" element={<Teachers />} />
               <Route path="/events" />
               <Route path="/contact" />
               <Route path="/about" />
