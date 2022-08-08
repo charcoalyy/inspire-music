@@ -8,6 +8,8 @@ import ScrollToTop from './ScrollToTop';
 import TabTitle from './TabTitle';
 import BookTrial from './BookTrial';
 import Teachers from './Teachers';
+import NotFound from './NotFound';
+import Contact from './Contact';
 
 function App() {
 
@@ -23,9 +25,10 @@ function App() {
               <Route path="/lessons/*" element={<Lessons />}/>
               <Route path="/teachers/*" element={<Teachers />} />
               <Route path="/events" />
-              <Route path="/contact" />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/about" />
-              <Route path="/contact/test" element={<BookTrial />} />
+              <Route path="/contact/book" element={<BookTrial />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           <Footer />

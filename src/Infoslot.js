@@ -1,4 +1,4 @@
-const Infoslot = ({title, age, duration, desc, desc2, desc3, image, slotName}) => {
+const Infoslot = ({title, age, duration, desc, desc2, desc3, image, slotName, price}) => {
     return(
         <div className={`info-slot`}>
             <h2>{title}</h2>
@@ -11,6 +11,7 @@ const Infoslot = ({title, age, duration, desc, desc2, desc3, image, slotName}) =
                     <p className={slotName}>{desc}</p>
                     { desc2 && <p className={slotName}>{desc2}</p>}
                     { desc3 && <p className={slotName}>{desc3}</p>}
+                    { price && <h7>Price: ${price}/h</h7>}
                 </div>
             </div>
         </div>

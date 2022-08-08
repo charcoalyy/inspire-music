@@ -8,7 +8,7 @@ const Banner = ({title, desc, id, clickable, noButton}) => {
         <div className="banner" id={id}>
             {clickable ? <Link to={`/${pathName}`} className="linkable-banner"><h2>{title}</h2></Link> : <h2>{title}</h2>}
             <p>{desc}</p>
-            {!noButton && <a className="free-trial">Book a free trial lesson today</a>}
+            {!noButton && <Link to="/contact/book" className="free-trial">Book a free trial lesson today</Link>}
         </div>
     )
 }
