@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Banner from "./Banner";
+import Calendar from "./Calendar";
 
 const BookTrial = () => {
     const [ lessonCategory, setLessonCategory ] = useState('');
@@ -130,7 +131,8 @@ const BookTrial = () => {
                 </div>
                 <div className="lesson-form-section">
                     <label>Lesson time</label>
-                    <a>INSERT CALENDAR HERE LOL</a>
+                    <iframe src="https://calendar.google.com/calendar/embed?src=fhkbtcs80q9sjvok0m0m7n94tg%40group.calendar.google.com&ctz=America%2FToronto" style={{border: 0}} width="800" height="600" frameBorder="0" scrolling="no"></iframe>
+                    <Calendar />
                 </div>
                 <button className="button">Book lesson</button>
             </form>

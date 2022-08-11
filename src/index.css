@@ -507,6 +507,16 @@ body {
 
 .contact-information {
   margin-right: 0.5rem;
+  box-sizing: border-box;
+}
+
+.contact-information p {
+  padding-bottom: 0.5rem;
+}
+
+.contact-information iframe {
+  width: 100%;
+  height: 40vh;
 }
 
 .contact-form {
