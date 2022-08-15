@@ -541,3 +541,38 @@ body {
 .contact-form .send-email {
   width: fit-content;
 }
+
+.times-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(autofill);
+}
+
+.times-button {
+  font-family: 'Poppins';
+  cursor: pointer;
+
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 0.25rem;
+  background-color: var(--red);
+  color: white;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.times-button h4 {
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.times-button p {
+  margin: 0rem;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.times-button:hover {
+  background-color: var(--black);
+}

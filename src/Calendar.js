@@ -28,13 +28,26 @@ const Calendar = () => {
         getEvents(process.env.REACT_APP_CALENDAR_ID, process.env.REACT_APP_API_KEY)
       }, []);
 
+
+    let what = (eve) => {
+      let test = eve.date.startTime
+      return test
+    }
+
     return(
-        <div>
-            {events?.map((event) => (
-            <li key={event.id} >
-                {event.summary}
-            </li>
-          ))}
+        <div className="times-list">
+
+            { events?.map((ev) => {
+                let start = ev.start.dateTime
+                let end = ev.end.dateTime
+
+                return(<div className="times-button">
+                  <h4>{ev.summary}</h4>
+                  <p>{start.slice(0, 10)}</p>
+                  <p>{`${start.slice(11, 16)} to ${end.slice(11, 16)}`}</p>
+                </div>)
+              
+            })}
         </div>
     )
 
