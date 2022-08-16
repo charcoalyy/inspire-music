@@ -543,18 +543,19 @@ body {
 }
 
 .times-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: repeat(autofill);
+  display: flex;
+  align-items: center;
 }
 
 .times-button {
+  display: block;
   font-family: 'Poppins';
   cursor: pointer;
 
   box-sizing: border-box;
   padding: 1rem;
-  margin: 0.25rem;
+  margin-left: 0.25rem;
+  margin-bottom: -0.5rem;
   background-color: var(--red);
   color: white;
   transition: all 0.5s;

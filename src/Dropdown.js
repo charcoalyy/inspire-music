@@ -7,7 +7,7 @@ const Dropdown = ({items, id}) => {
     return(
         <section className="dropdown-menu" id={id}>
             {items.map(item => ( 
-                <Link to={`/${parentNav}/${item.path}`} className="dropdown-item">
+                <Link to={`/${parentNav}/${item.path}`} className="dropdown-item" key={item.title}>
                     {item.title}
                 </Link>
             ))}

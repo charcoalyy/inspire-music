@@ -1,7 +1,7 @@
 import { gapi } from 'gapi-script'
 import { useEffect, useState } from 'react'
 
-const Calendar = () => {
+const Calendar = ({setLessonTime, lessonType}) => {
 
     const [events, setEvents] = useState([]);
 
@@ -23,31 +23,50 @@ const Calendar = () => {
       gapi.load('client', start)
     }
 
-
     useEffect(() => {
-        getEvents(process.env.REACT_APP_CALENDAR_ID, process.env.REACT_APP_API_KEY)
-      }, []);
+      getEvents(process.env.REACT_APP_CALENDAR_ID, process.env.REACT_APP_API_KEY)
+    }, []);
 
+    const handleClick = (e) => {
+      setLessonTime(e.currentTarget.id)
+      let buttons = document.querySelectorAll('.times-button');
+      buttons.forEach(button => button.classList.remove('active-selection'))
+      e.currentTarget.classList.add('active-selection');
+    }
 
-    let what = (eve) => {
-      let test = eve.date.startTime
-      return test
+    let test = []
+
+    const showRelevantTimes = (type, eve) => {
+      let start = eve.start.dateTime
+      let end = eve.end.dateTime
+
+      if (type === 'Woodwinds' && ['Flute', 'Clarinet', 'Saxophone'].includes(eve.summary)) {
+          return(
+            <div className="times-button" onClick={handleClick} id={eve.id} key={eve.id}>
+              <h4>{eve.summary}</h4>
+              <p>{start.slice(0, 10)}</p>
+              <p>{`${start.slice(11, 16)} to ${end.slice(11, 16)}`}</p>
+            </div>
+          )
+      } else if (type === eve.summary) {
+          return(
+            <div className="times-button" onClick={handleClick} id={eve.id} key={eve.id}>
+              <h4>{eve.summary}</h4>
+              <p>{start.slice(0, 10)}</p>
+              <p>{`${start.slice(11, 16)} to ${end.slice(11, 16)}`}</p>
+            </div>
+          )
+      }
     }
 
     return(
         <div className="times-list">
-
             { events?.map((ev) => {
-                let start = ev.start.dateTime
-                let end = ev.end.dateTime
-
-                return(<div className="times-button">
-                  <h4>{ev.summary}</h4>
-                  <p>{start.slice(0, 10)}</p>
-                  <p>{`${start.slice(11, 16)} to ${end.slice(11, 16)}`}</p>
-                </div>)
-              
+                let relevantEvent = showRelevantTimes(lessonType, ev)
+                relevantEvent && test.push(relevantEvent)
             })}
+            { test && test }
+            { test.length === 0 && <div className="placeholder">No current available lessons</div>}
         </div>
     )
 

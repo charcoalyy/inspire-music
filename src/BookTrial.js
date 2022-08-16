@@ -4,17 +4,20 @@ import Banner from "./Banner";
 import Calendar from "./Calendar";
 
 const BookTrial = () => {
-    const [ lessonCategory, setLessonCategory ] = useState('');
     const [ studentName, setStudentName ] = useState('');
     const [ studentAge, setStudentAge ] = useState('');
     const [ studentLevel, setStudentLevel ] = useState('');
+
     const [ phoneContact, setPhoneContact ] = useState('');
     const [ emailContact, setEmailContact ] = useState('');
+
+    const [ lessonCategory, setLessonCategory ] = useState('');
     const [ lessonType, setLessonType ] = useState('');
+    const [ lessonTime, setLessonTime ] = useState('');
 
     let numberedOptions = [];
     for (let i = 1; i < 11; i++) {
-        numberedOptions.push(<option>RCM Level {i}</option>)
+        numberedOptions.push(<option key={i}>RCM Level {i}</option>)
     }
 
     const navigate = useNavigate();
@@ -29,21 +32,27 @@ const BookTrial = () => {
     const handleBooking = (e) => {
         e.preventDefault();
         validateField('categories', 4, 'Category required')
+        validateField('time', 6, 'Time required')
 
-        // SOMETHING IS WRONG WIT THIS....
-        if (error === ['', '', '', '', '', '']) {
+        let allInformation = [studentName, studentAge, studentLevel, phoneContact, lessonCategory, lessonType, lessonTime]
+
+        if (allInformation.includes('')) {
+            console.log('error!!')
+        } else {
             alert('lesson booked');
             navigate('/');
-            setLessonCategory('Select a category');
-        } else {
-            console.log('this is fucking stupid')
+            setLessonCategory('Select a category')
         }
     }
 
-    const [ error, setError ] = useState(['', '', '', '', '', '']);
+    const [ error, setError ] = useState(['', '', '', '', '', '', '']);
 
     const validateField = (value, i, message) => {
         if (value === 'categories' && lessonCategory === '') {
+            const err = [...error];
+            err[i] = message;
+            setError(err);
+        } else if (value === 'time' && lessonTime === '') {
             const err = [...error];
             err[i] = message;
             setError(err);
@@ -76,12 +85,12 @@ const BookTrial = () => {
                 </div>
                 <div>
                     <label>Level</label>
-                    <select required value={studentLevel} onChange={(e) => setStudentLevel(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 2, 'Level required (even if unknown!)')}}>
+                    <select required value={studentLevel} onChange={(e) => setStudentLevel(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 2, 'Level required (even if unknown)')}}>
                         <option></option>
-                        <option>Don't know</option>
-                        <option>Preparatory (no experience)</option>
+                        <option key="unknown">Don't know</option>
+                        <option key="preparatory">Preparatory (no experience)</option>
                         { numberedOptions }
-                        <option>RCM Level ARCT</option>
+                        <option key="ARCT">RCM Level ARCT</option>
                     </select>
                     { error[2] && <section className="error">{error[2]}</section>}
                 </div>
@@ -111,19 +120,23 @@ const BookTrial = () => {
                     <label>Lesson type</label>
                     <br></br>
                     { lessonCategory === '' && <div className="placeholder">Select a category above</div>}
-                    { lessonCategory === 'instrumental' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)}>
+                    { lessonCategory === 'instrumental' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
+                        <option></option>
                         <option>Piano</option>
+                        <option>Woodwinds</option>
                         <option>Violin</option>
                         <option>Voice</option>
                         <option>Guitar</option>
                         <option>Drums</option>
                     </select>)}
-                    { lessonCategory === 'theory' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)}>
+                    { lessonCategory === 'theory' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
+                        <option></option>
                         <option>Beginner (Preparatory – Level 4)</option>
                         <option>Intermmediate (Level 5 – 8)</option>
                         <option>Advanced (Level 9 – 10)</option>
                     </select>)}
-                    { lessonCategory === 'other' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)}>
+                    { lessonCategory === 'other' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
+                        <option></option>
                         <option>Little Music Explorers</option>
                         <option>Markham Youth Choir</option>
                     </select>)}
@@ -131,9 +144,10 @@ const BookTrial = () => {
                 </div>
                 <div className="lesson-form-section">
                     <label>Lesson time</label>
-                    { lessonCategory === '' && <div className="placeholder">Select a type above</div>}
-                    { lessonCategory !== '' && <Calendar />}
+                    { lessonType === '' && <div className="placeholder">Select a type above</div>}
+                    { lessonType !== '' && <Calendar setLessonTime={setLessonTime} lessonType={lessonType} />}
                 </div>
+                { error[6] && <section className="error">{error[6]}</section>}
                 <button className="button">Book lesson</button>
             </form>
         </section>
