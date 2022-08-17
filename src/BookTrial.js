@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Banner from "./Banner";
 import Calendar from "./Calendar";
+import Confirm from "./Confirm";
 
 const BookTrial = () => {
     const [ studentName, setStudentName ] = useState('');
@@ -15,12 +16,12 @@ const BookTrial = () => {
     const [ lessonType, setLessonType ] = useState('');
     const [ lessonTime, setLessonTime ] = useState('');
 
+    const [ exit, setExit ] = useState(false);
+
     let numberedOptions = [];
     for (let i = 1; i < 11; i++) {
         numberedOptions.push(<option key={i}>RCM Level {i}</option>)
     }
-
-    const navigate = useNavigate();
 
     const handleClick = (e) => {
         setLessonCategory(e.currentTarget.id);
@@ -39,8 +40,8 @@ const BookTrial = () => {
         if (allInformation.includes('')) {
             console.log('error!!')
         } else {
-            alert('lesson booked');
-            navigate('/');
+            console.log('exit now true')
+            setExit(true);
             setLessonCategory('Select a category')
         }
     }
@@ -150,6 +151,7 @@ const BookTrial = () => {
                 { error[6] && <section className="error">{error[6]}</section>}
                 <button className="button">Book lesson</button>
             </form>
+            {exit && <Confirm message={`Your ${lessonType.toLowerCase()} lesson has been booked!`} setExit={setExit} />}
         </section>
     )
 }
