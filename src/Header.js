@@ -40,6 +40,9 @@ const Header = () => {
                 <div className="nav-tab-container">
                     <Link to="/contact" id="contact" className="nav-tab">Contact Us</Link>
                 </div>
+                <div className="nav-tab-container">
+                    <Link to="/about" id="about" className="nav-tab">About</Link>
+                </div>
             </section>
         </div>
     )

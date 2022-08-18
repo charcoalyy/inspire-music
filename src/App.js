@@ -10,6 +10,8 @@ import BookTrial from './BookTrial';
 import Teachers from './Teachers';
 import NotFound from './NotFound';
 import Contact from './Contact';
+import About from './About';
+import Events from './Events';
 
 function App() {
 
@@ -24,9 +26,9 @@ function App() {
               <Route exact path="/" element={<Homepage />} />
               <Route path="/lessons/*" element={<Lessons />}/>
               <Route path="/teachers/*" element={<Teachers />} />
-              <Route path="/events" />
+              <Route path="/events" element={<Events />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/about" />
+              <Route path="/about" element={<About />} />
               <Route path="/contact/book" element={<BookTrial />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
