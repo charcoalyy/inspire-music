@@ -117,6 +117,72 @@ body {
   background-color: rgb(240, 240, 240);
 }
 
+.about-section {
+  background-color: white;
+  padding: 2rem 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-section p {
+  font-weight: 300;
+}
+
+.left-image {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.right-image {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.gallery-image {
+  text-align: center;
+}
+
+.about-thumb {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.left-image .about-thumb {
+  margin-right: 1rem;
+}
+
+.right-image .about-thumb {
+  margin-left: 1rem;
+}
+
+.about-thumb img {
+  object-fit: cover;
+  min-width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.about-thumb:hover, .gallery img:hover {
+  transform: scale(1.03);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: auto;
+  grid-gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.gallery img {
+  object-fit: cover;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  transition: all 0.5s;
+}
+
 
 
 /* Page sections */
@@ -154,6 +220,10 @@ body {
 
 #contact-banner {
   background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 90%), url("https://pr1.nicelocal.ca/hsVOjPKg-37c6dokBlzz6g/580x580,q85/4px-BW84_n3lJhgQGe6caI1vAfZfD8yOKqS4dO4Py5dVeCDAtW6xSck1cF30EihxadZmCzlj0YHjMu6eiQ9zQOVSrDpGBpACML_cwW-Pmm76ziIeMlK3kC3RQaXXHTU230EI-rLDNq8");
+}
+
+#about-banner {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 90%), url("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/44961161_880537928805027_533390549676195840_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=e3f864&_nc_ohc=pEc4IVWGwuQAX8g89qs&_nc_ht=scontent-yyz1-1.xx&oh=00_AT_G70wd07dXL4YhehLNlWznn9OA-svKWZwP6YanxEM06g&oe=6324679D");
 }
 
 .banner h2 {
@@ -517,10 +587,18 @@ body {
   font-size: 16px;
 }
 
-.contact-content p {
+.contact-content p, li {
   font-size: 16px;
   font-weight: 300;
   margin: 0;
+}
+
+.contact-content ul {
+  padding-bottom: 1rem;
+}
+
+.contact-content li {
+  margin-left: 2.5rem;
 }
 
 .contact-information {
