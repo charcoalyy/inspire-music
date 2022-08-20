@@ -29,7 +29,7 @@ const Contact = () => {
                         <label>Email</label>
                         <input type="text" required></input>
                         <label>Message</label>
-                        <textarea required></textarea>
+                        <textarea rows="6" required></textarea>
                         <button className="send-email">Send email</button>
                     </form>
                 </section>

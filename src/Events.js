@@ -1,7 +1,7 @@
 const Events = () => {
     return(
         <div className="events">
-            Coming soon.
+            Redesign in progress
         </div>
     )
 }

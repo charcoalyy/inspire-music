@@ -19,7 +19,7 @@ const Teachers = () => {
 
     return(
         <div className="teachers">
-            <Banner clickable="true" title="Our Teachers" id="teachers-banner" desc="Musical instrument teachers show students various musical concepts and the application of their instruments—but a good teacher goes far beyond that. It’s about handing over essential tools for lifelong music appreciation, demonstrating ways to carry oneself with grace in public, discovering ways to channel emotions, and showcasing the power of persistence. Our educators dedicate themselves to this mission." />
+            <Banner clickable="true" title="Our Teachers" id="teachers-banner" desc="With university music degrees, performance experience, and passion for pedagogy, our teachers are equipped to foster musical talent." />
             <Routes>
                 <Route path="/" element={categories}  />
                 <Route path="/piano" element={specificTeachers.piano} />
