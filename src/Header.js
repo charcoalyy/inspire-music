@@ -3,6 +3,7 @@ import Dropdown from './Dropdown';
 import { useState, useEffect } from 'react';
 import ActivateTab from './ActivateTab';
 import { lessonMenuItems, teacherMenuItems } from './SpecificLists';
+import { useSpring, animated, useTransition } from '@react-spring/web';
 
 const Header = () => {
     const [ activeTab, setActiveTab ] = useState('home');
@@ -13,8 +14,14 @@ const Header = () => {
         activeTab ? document.getElementById(activeTab).classList.add('active-nav') : document.getElementById('home').classList.add('active-nav')
     }, [activeTab])
 
-    const [ lessonDropdown, setLessonDropdown ] = useState(false);
-    const [ teacherDropdown, setTeacherDropdown ] = useState(false);
+    const [dropdown, setDropdown] = useState(null)
+    const fade = useTransition(dropdown, {
+        from: {opacity: 0},
+        enter: {
+            opacity: 1
+        },
+        leave: {opacity: 0}
+    })
 
     return(
         <div className="header">
@@ -26,16 +33,19 @@ const Header = () => {
                 <div className="nav-tab-container">
                     <Link to="/" id="home" className="nav-tab active-nav">Home</Link>
                 </div>
-                <div onMouseEnter={() => setLessonDropdown(true)} onMouseLeave={() => setLessonDropdown(false)} className="nav-tab-container" onClick={() => setLessonDropdown(false)}>
-                    <Link to="/lessons" id="lessons" className="nav-tab">Lessons</Link>
-                    {lessonDropdown && <Dropdown items={lessonMenuItems} id="lessons-dropdown" />}
+                <div onMouseLeave={() => setDropdown(null)} className="nav-tab-container" onClick={() => setDropdown(null)}>
+                    <Link to="/lessons" id="lessons" className="nav-tab" onMouseEnter={() => setDropdown('lesson')}>Lessons</Link>
+                    {fade((style, item) => item === 'lesson' && <animated.div style={style}>{<Dropdown items={lessonMenuItems} id="lessons-dropdown" />}</animated.div>)}
                 </div>
-                <div className="nav-tab-container" onMouseEnter={() => setTeacherDropdown(true)} onMouseLeave={() => setTeacherDropdown(false)} onClick={() => setTeacherDropdown(false)}>
-                    <Link to="/teachers" id="teachers" className="nav-tab">Teachers</Link>
-                    {teacherDropdown && <Dropdown items={teacherMenuItems} id="teachers-dropdown" />}
+                <div className="nav-tab-container" onMouseLeave={() => setDropdown(null)} onClick={() => setDropdown(null)}>
+                    <Link to="/teachers" id="teachers" className="nav-tab" onMouseEnter={() => setDropdown('teachers')}>Teachers</Link>
+                    {fade((style, item) => item === 'teachers' && <animated.div style={style}>{<Dropdown items={teacherMenuItems} id="teachers-dropdown" />}</animated.div>)}
                 </div>
                 <div className="nav-tab-container">
                     <Link to="/events" id="events" className="nav-tab">Events</Link>
+                </div>
+                <div className="nav-tab-container">
+                    <p className="nav-divider">|</p>
                 </div>
                 <div className="nav-tab-container">
                     <Link to="/contact" id="contact" className="nav-tab">Contact Us</Link>

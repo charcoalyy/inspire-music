@@ -77,7 +77,13 @@ body {
   letter-spacing: 1px;
   font-weight: 500;
   color: var(--dark-grey);
-  transition: all 0.15s;
+  transition: all 0.2s;
+}
+
+.nav-divider {
+  color: var(--dark-grey);
+  padding: 0 0.75rem;
+  margin: 0;
 }
 
 .nav-tab-container:hover > .nav-tab {
@@ -184,8 +190,9 @@ body {
 
 
 
+
 /* Page sections */
-.homepage, .lessons, .teachers {
+.homepage, .lessons, .teachers, .events {
   background-color: white;
   padding-bottom: 2.5rem;
 }
@@ -206,7 +213,7 @@ body {
 }
 
 #lessons-banner {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85) 90%), url("https://cdn.canada247.info/assets/uploads/dd7bbc4aaf7f31a09525051f38982478_-ontario-regional-municipality-of-york-markham-inspire-music-academy-905-534-2456html.jpg");
+  background-image: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75) 90%), url("https://scontent-yyz1-1.xx.fbcdn.net/v/t31.18172-8/22791585_681497872042368_1928675723294383125_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=XDKcjr_TQYIAX9fJmg_&tn=BA-zpYYrH1cox7WW&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-Vd84TwwFBlMZ7JFTR2IqPD6-78BB2390BH2j-uzMhWg&oe=632654A1");
 }
 
 #booking-banner {
@@ -214,7 +221,7 @@ body {
 }
 
 #teachers-banner {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 90%), url("https://images.thestar.com/Z-MsB73vmf-AYEQ4zqqrfrEvDgk=/767x508/smart/http://media.zuza.com/6/1/61ee5e0b-6ce4-4759-8258-eba9d8b14d44/02262018a_Super_Portrait.jpg");
+  background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 90%), url("https://scontent-yyz1-1.xx.fbcdn.net/v/t31.18172-8/22791701_681497645375724_2984418731638646606_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=B1hEBvE3np8AX8wkdWz&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-H-200NTarQezKjOuCBN6YImnFdhkHSOgiiDrWUwOv3Q&oe=6328E87D");
 }
 
 #contact-banner {
@@ -223,6 +230,10 @@ body {
 
 #about-banner {
   background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 90%), url("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/44961161_880537928805027_533390549676195840_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=e3f864&_nc_ohc=pEc4IVWGwuQAX8g89qs&_nc_ht=scontent-yyz1-1.xx&oh=00_AT_G70wd07dXL4YhehLNlWznn9OA-svKWZwP6YanxEM06g&oe=6324679D");
+}
+
+#events-banner {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 90%), url("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/60361800_992977087561110_3910436705030635520_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=ZxPODTJ4PAMAX9cLkHu&_nc_ht=scontent-yyz1-1.xx&oh=00_AT_Tf-GZbaKiZr67sSfx7B-uHKVEue1dNnW9-9wuAE-jBQ&oe=6327745B");
 }
 
 .banner h2 {
@@ -248,6 +259,32 @@ body {
 
 .linkable-banner:hover h2 {
   color: var(--red);
+}
+
+.footer {
+  width: 95vw;
+  margin: 0.5rem auto 0 auto;
+  background-color: white;
+  padding: 1.75rem;
+  text-align: center;
+  color: var(--dark-grey);
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.socials > * {
+  padding: 0 0.1rem 0 0.1rem;
+  color: var(--dark-grey);
+  transition: all 0.3s;
+}
+
+.socials > *:hover {
+  color: var(--faint-red);
+}
+
+.footer p {
+  margin-bottom: 0.25rem;
+  font-size: 10px;
 }
 
 .specific-lesson-desc, .specific-teachers {
@@ -384,7 +421,7 @@ body {
 .divider {
   border-bottom: 0.5px solid var(--red);
   border-radius: 10rem;
-  margin: 3rem 6rem 1rem 6rem;
+  margin: 3rem 6rem 0rem 6rem;
 }
 
 .section-icon {
@@ -399,9 +436,9 @@ body {
   padding-bottom: 1rem;
 }
 
-.home-offers-title {
+.home-offers-title, .events-title {
   text-align: center;
-  padding-top: 0.5rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
 }
 
@@ -464,17 +501,6 @@ body {
 
 .info-card:hover > h2 {
   color: var(--red);
-}
-
-.footer {
-  width: 95vw;
-  margin: 0.5rem auto 0 auto;
-  background-color: white;
-  padding: 1rem;
-  text-align: center;
-  color: var(--dark-grey);
-  font-size: 12px;
-  box-sizing: border-box;
 }
 
 

@@ -11,7 +11,7 @@ const Infoslot = ({title, age, duration, desc, desc2, desc3, image, slotName, pr
                     <p className={slotName}>{desc}</p>
                     { desc2 && <p className={slotName}>{desc2}</p>}
                     { desc3 && <p className={slotName}>{desc3}</p>}
-                    { price && <h7>Price: ${price}/h</h7>}
+                    { price && <h6>Price: ${price}/h</h6>}
                 </div>
             </div>
         </div>
