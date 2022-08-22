@@ -40,7 +40,7 @@ const BookTrial = () => {
         if (allInformation.includes('')) {
             console.log('error!!')
         } else {
-            console.log('exit now true')
+            console.log(lessonTime);
             setExit(true);
             setLessonCategory('Select a category')
         }
@@ -66,6 +66,11 @@ const BookTrial = () => {
             err[i] = '';
             setError(err);
         }
+    }
+
+    const changeTypeClearTime = (e) => {
+        setLessonType(e.target.value);
+        setLessonTime('');
     }
     
     return(
@@ -119,9 +124,8 @@ const BookTrial = () => {
                 { error[4] && <section className="error">{error[4]}</section>}
                 <div className="lesson-form-section">
                     <label>Lesson type</label>
-                    <br></br>
                     { lessonCategory === '' && <div className="placeholder">Select a category above</div>}
-                    { lessonCategory === 'instrumental' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
+                    { lessonCategory === 'instrumental' && (<select required value={lessonType} onChange={changeTypeClearTime} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
                         <option></option>
                         <option>Piano</option>
                         <option>Woodwinds</option>
@@ -130,13 +134,13 @@ const BookTrial = () => {
                         <option>Guitar</option>
                         <option>Drums</option>
                     </select>)}
-                    { lessonCategory === 'theory' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
+                    { lessonCategory === 'theory' && (<select required value={lessonType} onChange={changeTypeClearTime} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
                         <option></option>
                         <option>Beginner (Preparatory – Level 4)</option>
                         <option>Intermmediate (Level 5 – 8)</option>
                         <option>Advanced (Level 9 – 10)</option>
                     </select>)}
-                    { lessonCategory === 'other' && (<select required value={lessonType} onChange={(e) => setLessonType(e.target.value)} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
+                    { lessonCategory === 'other' && (<select required value={lessonType} onChange={changeTypeClearTime} onBlur={(e) => {validateField(e.currentTarget.value, 5, 'Lesson type required')}}>
                         <option></option>
                         <option>Little Music Explorers</option>
                         <option>Markham Youth Choir</option>

@@ -1,59 +1,47 @@
 import { Link } from 'react-router-dom';
-import Dropdown from './Dropdown';
-import { useState, useEffect } from 'react';
-import ActivateTab from './ActivateTab';
-import { lessonMenuItems, teacherMenuItems } from './SpecificLists';
-import { useSpring, animated, useTransition } from '@react-spring/web';
+import { useState, useEffect, useRef } from 'react';
+// import { useSpring, animated, useTransition } from '@react-spring/web';
+import { GiHamburgerMenu } from 'react-icons/gi'
+import Navbar from './Navbar';
 
 const Header = () => {
-    const [ activeTab, setActiveTab ] = useState('home');
 
+    const [ wide, setWide ] = useState(null);
     useEffect(() => {
-        const navTabs = document.querySelectorAll('.nav-tab');
-        navTabs.forEach(tab => tab.classList.remove('active-nav'));
-        activeTab ? document.getElementById(activeTab).classList.add('active-nav') : document.getElementById('home').classList.add('active-nav')
-    }, [activeTab])
+        const handleChange = () => {
+            window.innerWidth > 930 ? setWide(true) : setWide(false)
+            console.log(wide)
+        }
 
-    const [dropdown, setDropdown] = useState(null)
-    const fade = useTransition(dropdown, {
-        from: {opacity: 0},
-        enter: {
-            opacity: 1
-        },
-        leave: {opacity: 0}
-    })
+        window.addEventListener('resize', handleChange);
+        return () => {
+            window.removeEventListener('resize', handleChange);
+        };
+    });
+
+    const openMenu = () => {
+        setOpenNav(true)
+    }
+
+    const nav = useRef(null);
+    const [ openNav, setOpenNav ] = useState(false);
+    const closeOpenNav = (e) => {
+        if (nav.current && openNav && !nav.current.contains(e.target)) {
+            setOpenNav(false);
+        }
+    }
+
+    document.addEventListener('mousedown', closeOpenNav)
 
     return(
         <div className="header">
-            <ActivateTab activeTab={activeTab} setActiveTab={setActiveTab} />
             <section className="header-logo">
                 <Link to="/"><img id="header-image" src="https://inspiremusiclesson.com/wp-content/uploads/2017/11/sample-FINAL-retina.jpg"></img></Link>
             </section>
-            <section className="navbar">
-                <div className="nav-tab-container">
-                    <Link to="/" id="home" className="nav-tab active-nav">Home</Link>
-                </div>
-                <div onMouseLeave={() => setDropdown(null)} className="nav-tab-container" onClick={() => setDropdown(null)}>
-                    <Link to="/lessons" id="lessons" className="nav-tab" onMouseEnter={() => setDropdown('lesson')}>Lessons</Link>
-                    {fade((style, item) => item === 'lesson' && <animated.div style={style}>{<Dropdown items={lessonMenuItems} id="lessons-dropdown" />}</animated.div>)}
-                </div>
-                <div className="nav-tab-container" onMouseLeave={() => setDropdown(null)} onClick={() => setDropdown(null)}>
-                    <Link to="/teachers" id="teachers" className="nav-tab" onMouseEnter={() => setDropdown('teachers')}>Teachers</Link>
-                    {fade((style, item) => item === 'teachers' && <animated.div style={style}>{<Dropdown items={teacherMenuItems} id="teachers-dropdown" />}</animated.div>)}
-                </div>
-                <div className="nav-tab-container">
-                    <Link to="/events" id="events" className="nav-tab">Events</Link>
-                </div>
-                <div className="nav-tab-container">
-                    <p className="nav-divider">|</p>
-                </div>
-                <div className="nav-tab-container">
-                    <Link to="/contact" id="contact" className="nav-tab">Contact Us</Link>
-                </div>
-                <div className="nav-tab-container">
-                    <Link to="/about" id="about" className="nav-tab">About</Link>
-                </div>
-            </section>
+
+            { wide && <Navbar wide={wide} /> }
+            { !wide && !openNav && <GiHamburgerMenu size={30} onClick={openMenu} /> }
+            { openNav && <div ref={nav}>{<Navbar wide={wide} setOpenNav={setOpenNav} />}</div> }
         </div>
     )
 }

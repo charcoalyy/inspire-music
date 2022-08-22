@@ -1,7 +1,5 @@
 import InfoCard from './Infocard.js';
 import Banner from './Banner.js';
-import { BsMusicNoteList } from 'react-icons/bs'
-import { FaChild } from 'react-icons/fa'
 import Testimonial from './Testimonial.js'
 
 const Homepage = () => {

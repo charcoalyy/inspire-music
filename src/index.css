@@ -55,6 +55,7 @@ body {
   text-transform: uppercase;
   font-size: 14px;
   box-sizing: border-box;
+  position: relative;
 }
 
 #header-image {
@@ -476,7 +477,7 @@ body {
 
 .info-card h2 {
   transition: all 0.5s;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   font-weight: 600;
 }
 
@@ -485,14 +486,15 @@ body {
 }
 
 .info-card h6 {
-  padding: 0 1rem;
+  padding: 0 1.5rem 0.5rem 1.5rem;
   font-weight: 500;
 }
 
 .info-card p {
   font-weight: 300;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 0.5rem 1.5rem 2rem 1.5rem;
   font-size: 16px;
+  margin: 0;
 }
 
 .info-card:hover, .testimonial:hover {
@@ -552,7 +554,6 @@ body {
 .info-slot-thumb {
   overflow: hidden;
   display: flex;
-  justify-content: center;
 }
 
 .info-slot-thumb img {
@@ -666,6 +667,7 @@ body {
 .times-list {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .times-button {
@@ -675,7 +677,7 @@ body {
 
   box-sizing: border-box;
   padding: 1rem;
-  margin-left: 0.25rem;
+  margin-right: 0.25rem;
   margin-bottom: -0.5rem;
   background-color: var(--red);
   color: white;
@@ -771,4 +773,165 @@ body {
 .testimonial h4 {
   font-weight: 600;
   padding-bottom: 1rem;
+}
+
+
+/* Breakpoints */
+@media only screen and (max-width: 931px) {
+  .navbar {
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .nav-tab-container {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    margin: 0;
+    background-color: rgba(198, 18, 25, 0.95);
+    position: relative;
+  }
+  .nav-tab {
+    box-sizing: border-box;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .nav-tab-container:hover > .nav-tab, .active-nav {
+    background-color: black;
+    color: white !important;
+    border: none !important;
+  }
+
+  .navbar .dropdown-menu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .navbar #teachers-dropdown {
+    position: absolute;
+    left: -82%;
+  }
+
+  .navbar #lessons-dropdown {
+    position: absolute;
+    left: -88.5%;
+  }
+
+}
+
+
+@media only screen and (max-width: 800px) {
+  .info-card h2 {
+    font-size: 24px;
+  }
+  .info-card p {
+    font-size: 14px;
+  }
+  .info-slot p {
+    font-size: 14px;
+  }
+  .homepage h1, .lessons h1, .teachers h1, .events h1 {
+    font-size: 26px;
+  }
+  .contact-us h1 {
+    font-size: 22px;
+  }
+  .contact-us h6 {
+    font-size: 14px;
+  }
+  .contact-form label {
+    font-size: 16px;
+  }
+  .about p {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .banner h2 {
+    font-size: 34px;
+  }
+  .banner p {
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+  }
+  #booking-banner h2 {
+    font-size: 28px;
+  }
+  #booking-banner p {
+    font-size: 12px;
+  }
+  
+
+  .free-trial, .send-email, .book-trial .button {
+    font-size: 12px;
+    padding: 0.75rem 1.25rem;
+  }
+  .contact-information {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-trial h3 {
+    font-size: 20px;
+  }
+  .book-trial p, label, .placeholder {
+    font-size: 16px;
+  }
+  .book-trial .lesson-form-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #lesson-category-buttons > * {
+    margin-bottom: 0.25rem;
+  }
+  .times-button p {
+    font-size: 12px;
+  }
+
+  .home-offers .info-card, .lesson-categories .info-card, .teacher-categories .info-card {
+    width: 80vw;
+    margin-bottom: 0.5rem;
+  }
+  .info-slot-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .info-slot-thumb img {
+    aspect-ratio: 1/1;
+    object-position: top;
+  }
+  .info-slot-thumb {
+    box-sizing: border-box;
+    margin: 0 1rem 1rem 1rem;
+  }
+
+  .testimonial {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.75fr 1fr;
+  }
+  .about-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-image .about-thumb {
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 0;
+  } .left-image .about-thumb {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .gallery, .contact-content {
+    grid-template-columns: 1fr 1fr;
+  }
 }
