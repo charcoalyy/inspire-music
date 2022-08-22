@@ -5,7 +5,7 @@ import ActivateTab from './ActivateTab';
 import { lessonMenuItems, teacherMenuItems } from './SpecificLists';
 import { animated, useTransition } from '@react-spring/web';
 
-const Navbar = ({wide, setOpenNav}) => {
+const Navbar = ({wide, setOpenNav, setBurger}) => {
     const [ activeTab, setActiveTab ] = useState('home');
     useEffect(() => {
         const navTabs = document.querySelectorAll('.nav-tab');
@@ -14,16 +14,20 @@ const Navbar = ({wide, setOpenNav}) => {
     }, [activeTab])
 
     const [dropdown, setDropdown] = useState(null)
+    
     const fade = useTransition(dropdown, {
         from: {opacity: 0},
-        enter: {
-            opacity: 1
-        },
+        enter: {opacity: 1},
         leave: {opacity: 0}
     })
 
+    const handleClick = () => {
+        setOpenNav(false);
+        setBurger(true);
+    }
+
     return(
-        <div onClick={() => setOpenNav(false)}>
+        <div onClick={handleClick}>
             <ActivateTab activeTab={activeTab} setActiveTab={setActiveTab} />
             <section className="navbar">
                 <div className="nav-tab-container">

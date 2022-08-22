@@ -1,7 +1,15 @@
 import Banner from './Banner.js'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 const About = () => {
+    useEffect(() => {
+        AOS.init({duration: 1000});
+        AOS.refresh();
+    }, [])
+
     return(
         <div className="about">
             <Banner title="About Inspire Music" desc="We strive for first-rate education and community." id="about-banner" noButton={true} />
@@ -39,12 +47,24 @@ const About = () => {
                 <h1>Regardless of your current expertise,</h1>
                 <p>We're hear to support you in the next step of your music journey!</p>
                 <div className="gallery">
-                    <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/43669679_872570702935083_817212614344966144_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=3Hq3YJehohoAX-VhPQD&tn=BA-zpYYrH1cox7WW&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-CGp1gywZkkiN3KdAiAiyqLkytMDhwkSjcp8QuCNm2vQ&oe=63244BF2"></img>
-                    <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/60338440_992977187561100_4551262713405243392_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=ljegikjft2MAX9AmD2a&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-I38CnJJHxvrSsglADFX7LRnz308pwy3FFPx1KLm4Clw&oe=6325958A"></img>
-                    <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/60325273_992977130894439_3648326653525884928_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=60AzhZr7IDQAX_OzRoj&_nc_ht=scontent-yyz1-1.xx&oh=00_AT_JMYLH8hPcbcX69eYA4om98iudcr-HsaS715bFpPxGHg&oe=63250743"></img>
-                    <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/59987037_992977177561101_2110347436613435392_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=jzgLXbfYA-oAX8M-68o&_nc_ht=scontent-yyz1-1.xx&oh=00_AT9j3USANx1vqB6wVNj8QjlvC-EXPK28_jXNE3Pp5o4P-g&oe=63249189"></img>
-                    <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/45020371_880134145512072_7955011659691458560_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=oOuV0Ciq8v0AX96UlGo&_nc_ht=scontent-yyz1-1.xx&oh=00_AT_8YTUyaJIF8O3YgUW-V_AsPfztMBy1a6lkduj6WBTKDA&oe=6324CC09"></img>
-                    <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/44926429_880134132178740_7864140816111894528_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=bcIkzMJdoLsAX9O1zV0&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-SnM3UZxD0CuWQnC5COyLb6mU_1HWX_ELxqGI6TfjDgA&oe=6323BAC3"></img>
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/43669679_872570702935083_817212614344966144_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=3Hq3YJehohoAX-VhPQD&tn=BA-zpYYrH1cox7WW&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-CGp1gywZkkiN3KdAiAiyqLkytMDhwkSjcp8QuCNm2vQ&oe=63244BF2"></img>
+                    </div>
+                    <div data-aos="fade-up" data-aos-duration="1500">
+                        <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/60338440_992977187561100_4551262713405243392_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=ljegikjft2MAX9AmD2a&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-I38CnJJHxvrSsglADFX7LRnz308pwy3FFPx1KLm4Clw&oe=6325958A"></img>
+                    </div>
+                    <div data-aos="fade-up" data-aos-duration="2000">
+                        <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/60325273_992977130894439_3648326653525884928_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=60AzhZr7IDQAX_OzRoj&_nc_ht=scontent-yyz1-1.xx&oh=00_AT_JMYLH8hPcbcX69eYA4om98iudcr-HsaS715bFpPxGHg&oe=63250743"></img>
+                    </div>
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/59987037_992977177561101_2110347436613435392_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=jzgLXbfYA-oAX8M-68o&_nc_ht=scontent-yyz1-1.xx&oh=00_AT9j3USANx1vqB6wVNj8QjlvC-EXPK28_jXNE3Pp5o4P-g&oe=63249189"></img>
+                    </div>
+                    <div data-aos="fade-up" data-aos-duration="1500">
+                        <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/45020371_880134145512072_7955011659691458560_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=oOuV0Ciq8v0AX96UlGo&_nc_ht=scontent-yyz1-1.xx&oh=00_AT_8YTUyaJIF8O3YgUW-V_AsPfztMBy1a6lkduj6WBTKDA&oe=6324CC09"></img>
+                    </div>
+                    <div data-aos="fade-up" data-aos-duration="2000">
+                        <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.6435-9/44926429_880134132178740_7864140816111894528_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=bcIkzMJdoLsAX9O1zV0&_nc_ht=scontent-yyz1-1.xx&oh=00_AT-SnM3UZxD0CuWQnC5COyLb6mU_1HWX_ELxqGI6TfjDgA&oe=6323BAC3"></img>
+                    </div>
                 </div>
                 <Link to="/contact/book" className="free-trial">Book a free trial lesson today</Link>
             </section>
