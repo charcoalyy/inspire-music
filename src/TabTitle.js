@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 
 const TabTitle = () => {
     const location = useLocation();
-    const locationName = location.pathname.toString();
 
     const lessons = ['Instrumental', 'Other', 'Theory'];
     const teachers = ['Piano', 'Strings', 'Woodwinds', 'Voice', 'Guitar', 'Drums']

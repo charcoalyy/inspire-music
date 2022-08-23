@@ -64,6 +64,7 @@ const Calendar = ({setLessonTime, lessonType}) => {
             { events?.map((ev) => {
                 let relevantEvent = showRelevantTimes(lessonType, ev)
                 relevantEvent && test.push(relevantEvent)
+                return null
             })}
             { test && test }
             { test.length === 0 && <div className="placeholder">No current available lessons</div>}

@@ -37,15 +37,15 @@ const Header = () => {
     const [ burger, setBurger ] = useState(true);
 
     const slide = useTransition(openNav, {
-        from: { opacity: -1, y: -65, position: "absolute", right: 0 },
+        from: { opacity: -2, y: -400, position: "absolute", right: 0 },
         enter: { opacity: 1, y: 65, zIndex: 5},
-        leave: { opacity: -1, y: -65 }
+        leave: { opacity: -2, y: -400 }
     })
 
     return(
         <div className="header">
             <section className="header-logo">
-                <Link to="/"><img id="header-image" src="https://inspiremusiclesson.com/wp-content/uploads/2017/11/sample-FINAL-retina.jpg"></img></Link>
+                <Link to="/"><img id="header-image" alt="inspire music academy logo with a treble clef" src="https://inspiremusiclesson.com/wp-content/uploads/2017/11/sample-FINAL-retina.jpg"></img></Link>
             </section>
 
             { wide && <Navbar wide={wide} /> }

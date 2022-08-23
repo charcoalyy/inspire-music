@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 
-const Testimonial = ({name, instrument, desc, image}) => {
+const Testimonial = ({name, instrument, desc, image, alt}) => {
     useEffect(() => {
         AOS.init({duration: 1000});
         AOS.refresh();
@@ -12,7 +12,7 @@ const Testimonial = ({name, instrument, desc, image}) => {
         <div data-aos="fade-left">
             <div className="testimonial">
                 <div className="thumb">
-                    <img src={image}></img>
+                    <img src={image} alt={alt && alt}></img>
                 </div>
                 <div className="content">
                     <h3>{name}</h3>

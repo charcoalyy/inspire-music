@@ -1,10 +1,10 @@
-const Infoslot = ({title, age, duration, desc, desc2, desc3, image, slotName, price}) => {
+const Infoslot = ({title, age, duration, desc, desc2, desc3, image, slotName, price, alt}) => {
     return(
         <div className={`info-slot`}>
             <h2>{title}</h2>
             <div className="info-slot-content">
                 <div className="info-slot-thumb">
-                    <img src={image}></img>
+                    <img src={image} alt={alt && alt}></img>
                 </div>
                 <div className="info-slot-text">
                     { age && duration && <h6>Recommended ages: {age} <br></br> Lesson durations: {duration}</h6> }

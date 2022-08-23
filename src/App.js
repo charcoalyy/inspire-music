@@ -34,7 +34,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-          <a href="#" className="to-top">&#x25B2;</a>
+          <a onClick={() => window.scrollTo(0, 0)} className="to-top">&#x25B2;</a>
         </div>
       </Router>
     );
