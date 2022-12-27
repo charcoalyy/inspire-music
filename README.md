@@ -1,3 +1,3 @@
 # inspire-music
 
-this complete remake of the music school's website brings it speed, functionality, and clean design!
+a complete remake of the music school's website to bring it speed, functionality, and clean design
